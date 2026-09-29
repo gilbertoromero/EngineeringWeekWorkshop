@@ -1,0 +1,79 @@
+:root {
+  color-scheme: dark;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #0b0d14;
+  color: #e7e9f3;
+}
+
+#app {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+#hud {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgb(12 14 22 / 65%);
+  border: 1px solid rgb(255 255 255 / 10%);
+  font-size: 13px;
+  line-height: 1.5;
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+}
+
+#hud strong {
+  margin-bottom: 4px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8be9ff;
+}
+
+#start {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: rgb(6 8 14 / 88%);
+  color: #e7e9f3;
+  font-size: 40px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+/* El texto crece al pasar el mouse. Va en un <span> porque el botón ocupa
+   toda la pantalla: si escaláramos el botón, crecería la pantalla entera. */
+#start span {
+  display: inline-block; /* transform no funciona en elementos inline */
+  transition: transform 0.4s cubic-bezier(0.37, 0, 0.63, 1); /* easeInOutSine */
+}
+
+#start:not(:disabled) span:hover {
+  transform: scale(1.3);
+}
+
+#start[hidden] {
+  display: none;
+}
+
+#start:disabled {
+  cursor: progress;
+  color: #8792b5;
+}

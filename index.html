@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Press Start: Intro al Desarrollo de Videojuegos</title>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <canvas id="app"></canvas>
+
+    <!-- HUD simple para mostrar los controles -->
+    <!-- <div id="hud">
+      <strong>Controles</strong>
+      <span>WASD / flechas — mover</span>
+      <span>Shift — correr</span>
+      <span>Espacio — saltar</span>
+      <span>C — rodar</span>
+      <span>Mouse — girar cámara</span>
+    </div> -->
+
+    <!-- Lo navegadores bloquean el audio hasta recibir una interacción del usuario. -->
+    <button id="start" disabled>
+      <span id="start-label">Cargando…</span>
+    </button>
+
+    <!-- 1. Cargamos la libreria principal para el renderizado del juego. -->
+    <script src="libs/three.global.js"></script>
+
+    <!-- 2.  Los assets (modelos, texturas, audio) vienen convertidos a base64 dentro
+     de archivos .js, para que el juego funcione abriendo index.html, sin necesidad
+    de un servidor web -->
+    <script src="data/model.data.js"></script>
+    <script src="data/textures.data.js"></script>
+    <script src="data/audio.data.js"></script>
+
+    <!-- 3. El código. -->
+    <script src="src/assets.js"></script>
+    <script src="src/shaders/portal.js"></script>
+    <script src="src/core/engine.js"></script>
+    <script src="src/features/level.js"></script>
+    <script src="src/features/character.js"></script>
+    <script src="src/features/audio.js"></script>
+    <script src="src/features/controls.js"></script>
+    <script src="src/features/vfx.js"></script>
+    <script src="src/features/jump.js"></script>
+    <script src="src/scene/main-scene.js"></script>
+    <script src="src/main.js"></script>
+  </body>
+</html>
